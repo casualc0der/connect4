@@ -6,6 +6,10 @@ class Player
     @name = name
     @disc = disc
   end
+
+  def disc_check(disc_to_check)
+    disc_to_check == disc
+  end
 end
 
 RSpec.describe Player do
@@ -29,6 +33,20 @@ RSpec.describe Player do
     end
     it 'Should reject the disc if more than one char' do
       expect { Player.new('Edd', 'xx') }. to raise_error("Use single character for disc")
+    end
+  end
+  describe '#disc_check' do
+    context 'when disc supplied matches player disc' do
+      it 'returns true' do
+        player = Player.new('Edd', 'o')
+        expect(player.disc_check('o')).to be(true)
+      end
+    end
+    context 'when disc supplied does not match player disc' do
+      it 'returns false' do
+        player = Player.new('Edd', 'o')
+        expect(player.disc_check('x')).to be(false)
+      end
     end
   end
 end
