@@ -121,6 +121,5 @@ RSpec.describe Board do
         expect(board.full?).to eq(false)
       end
     end
-
   end
 end
