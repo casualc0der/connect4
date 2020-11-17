@@ -5,12 +5,21 @@ class Board
     @play_area = Array.new(42)
   end
   def insert(pos, disc)
+    # players can only select from the 7 rows, gravity does the rest
     return false if pos < 1 || pos > 7
+
+    #normalise the pos to insert into our array
     pos -= 1
+
+    # find the first available slot within the column
     until play_area[pos].nil?
       pos += 7
     end
+
+    # return false if position is out of bounds after the previous check
     return false unless error_check(pos)
+
+    # otherwise, insert the disc into the board
     @play_area[pos] = disc
   end
 

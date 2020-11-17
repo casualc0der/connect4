@@ -4,3 +4,10 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+Board	spec/board_spec.rb	/^class Board$/;"	c
+BoardHelpers	spec/support/board_helpers.rb	/^module BoardHelpers$/;"	m
+error_check	spec/board_spec.rb	/^  def error_check(pos)$/;"	f
+fill_up_board	spec/support/board_helpers.rb	/^  def fill_up_board(board)$/;"	f	class:BoardHelpers
+full?	spec/board_spec.rb	/^  def full?$/;"	f
+initialize	spec/board_spec.rb	/^  def initialize$/;"	f	class:Board
+insert	spec/board_spec.rb	/^  def insert(pos, disc)$/;"	f	class:Board
