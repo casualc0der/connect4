@@ -1,0 +1,37 @@
+Where to we want to start?
+
+rough ideas for classes
+
+Game -> Keeps track of game state (start, number of moves, winner?)
+Board -> Keeps track of board state
+    Line -> Keeps track of discs within board.
+            #report with no args
+                checks for a slice of length 4, with all matching discs
+            #report with args(pos)
+                returns the disc in pos
+Output -> Displays the board + tokens onto the screen
+Player -> Specifies which token for each player
+
+connect4 rules
+2 players
+- PLAYERs take it in turns to drop a colored disc into the top of the play BOARD
+- The disc slides to the lowest point within the LINE
+- A PLAYER will win the game if 4 discs are in a line (hori, vert, diag), with no interruptions from the other players
+  disc
+7 Columns : 6 Rows
+
+BOARD
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
+To check for a winner ->
+- There is a maximum of 42 moves (only 42 positions on the board)
+- Do not check before turn 4 (there cannot be a winner as this point)
+- There are 69 possible winning 4 in row positions. Do we just hardcode the values?
+    = NO- make a loop to check each orientation. hori, vert, diag
+    = if values_at(x,x,x,x) are the same && not nil, that player wins
