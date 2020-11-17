@@ -1,9 +1,10 @@
 class Player
   attr_reader :name, :disc
   def initialize(name, disc)
+    raise 'Name should be 50 characters or less' if name.length > 50
+    raise 'Use single character for disc' if disc.length > 1
     @name = name
     @disc = disc
-
   end
 end
 
@@ -15,7 +16,6 @@ RSpec.describe Player do
     it 'Should raise an error if no disc supplied' do
       expect { Player.new('Edd') }.to raise_error(ArgumentError)
     end
-
     it 'Should save the players name' do
       player = Player.new('Edd', 'x')
       expect(player.name).to eq('Edd')
@@ -23,6 +23,12 @@ RSpec.describe Player do
     it 'Should save the players symbol' do
       player  = Player.new('Edd', 'x')
       expect(player.disc).to eq('x')
+    end
+    it 'Should reject the name if more than 50 chars' do
+      expect { Player.new('x' * 51, 'x') }.to raise_error("Name should be 50 characters or less")
+    end
+    it 'Should reject the disc if more than one char' do
+      expect { Player.new('Edd', 'xx') }. to raise_error("Use single character for disc")
     end
   end
 end
