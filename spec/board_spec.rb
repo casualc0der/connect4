@@ -5,6 +5,7 @@ class Board
     @play_area = Array.new(42)
   end
   def insert(pos, disc)
+
     # players can only select from the 7 rows, gravity does the rest
     return false if pos < 1 || pos > 7
 
@@ -21,15 +22,18 @@ class Board
 
     # otherwise, insert the disc into the board
     @play_area[pos] = disc
+
   end
 
   def full?
+    # Check to see if the board is full. Remove nils and count the length
     @play_area.compact.size == 42
   end
 
   private
 
   def error_check(pos)
+    # if the pos is not included in the range 0-41, the move is not valid
     (0..41).include?(pos)
   end
 end
