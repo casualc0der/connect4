@@ -9,7 +9,7 @@ class Board
     # players can only select from the 7 rows, gravity does the rest
     return false if pos < 1 || pos > 7
 
-    #normalise the pos to insert into our array
+    #normalise the position to insert into our array
     pos -= 1
 
     # find the first available slot within the column
