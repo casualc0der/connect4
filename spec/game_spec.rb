@@ -45,7 +45,6 @@ class Game
 
     # diagonal
 
-
     wins
   end
 end
