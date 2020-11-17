@@ -21,7 +21,11 @@ class Game
     # the slice must all be one colour to declare a winner
     return false if discs.uniq.length > 1
 
-    return discs
+    # if we've got this far then someone has won...
+    # if its not player 1, its player 2!
+
+    return player1.disc_check(discs.uniq.first) ? player1 : player2
+
 
   end
 end
@@ -58,15 +62,18 @@ RSpec.describe Game do
     end
   end
   describe "#winner" do
-    context 'horizontal win for player 1' do
+    context 'single player games' do
+    context 'horizontal wins for player 1' do
       it 'returns player 1' do
-        game.board.insert(1, game.player1.disc)
-        game.board.insert(2, game.player1.disc)
-        game.board.insert(3, game.player1.disc)
-        game.board.insert(4, game.player1.disc)
+        4.times {|i| game.board.insert(i+1, game.player1.disc)}
         expect(game.check_winner).to eq(player1)
       end
     end
+    context 'horizontal wins for player 2' do
+      it 'returns player 2' do
 
-  end
+      end
+    end
+    end
+    end
 end
