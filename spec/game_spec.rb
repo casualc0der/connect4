@@ -1,10 +1,10 @@
 class Game
-  attr_reader :player1, :player2, :board
+  attr_reader :player1, :player2, :board, :winning_positions
   def initialize(player1, player2, board)
     @player1 = player1
     @player2 = player2
     @board = board
-
+    @winning_positions = permutations
   end
 
   def check_winner
@@ -25,8 +25,28 @@ class Game
     # if its not player 1, its player 2!
 
     return player1.disc_check(discs.uniq.first) ? player1 : player2
+  end
+  def permutations
+    wins = []
+
+    # horizontal
+    # TODO: -> Refactor this naughty while loop into a for loop
+    d,y = 0,0
+    while d < 42
+      wins << [d, d+1, d+2, d+3]
+      d += 1 and y += 1
+      d+=3 and y = 0 if y == 4
+    end
+
+    # vertical
+    7.times do |i|
+      (1..3).each {|p| wins << [i, i+(7*p), i+(14*p), i+(21*p)] }
+    end
+
+    # diagonal
 
 
+    wins
   end
 end
 
@@ -61,16 +81,28 @@ RSpec.describe Game do
       it 'returns a draw object'
     end
   end
+  describe '#winning permutations' do
+    it 'should have 69 entries' do
+      expect(game.winning_positions.length).to eq(69)
+    end
+  end
   describe "#winner" do
     context 'single player games' do
     context 'horizontal wins for player 1' do
-      it 'returns player 1' do
+      it 'returns player 1 (basic)' do
         4.times {|i| game.board.insert(i+1, game.player1.disc)}
+        expect(game.check_winner).to eq(player1)
+      end
+      it 'returns player 1 (with offset)' do
+        pending
+        4.times {|i| game.board.insert(i+2, game.player1.disc)}
         expect(game.check_winner).to eq(player1)
       end
     end
     context 'horizontal wins for player 2' do
       it 'returns player 2' do
+        4.times {|i| game.board.insert(i+1, game.player2.disc)}
+        expect(game.check_winner).to eq(player2)
 
       end
     end
