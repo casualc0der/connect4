@@ -198,7 +198,7 @@ RSpec.describe Game do
 
           play_area = [
               'x', 'o', 'x', 'o', 'x', 'o', 'x',
-              'o', 'o', 'x', 'x', 'x','x', 'o',
+              'o', 'o', 'x', 'x', 'x', 'x', 'o',
               'o', nil, nil, nil, nil, nil, nil,
               nil, nil, nil, nil, nil, nil, nil,
               nil, nil, nil, nil, nil, nil, nil,
@@ -214,7 +214,7 @@ RSpec.describe Game do
         it 'returns player 1 after 28 turns' do
           play_area = [
               'x', 'o', 'x', 'o', 'x', 'o', 'x',
-              'x', 'x', 'x', 'o', 'o','o', 'x',
+              'x', 'x', 'x', 'o', 'o', 'o', 'x',
               'o', 'o', 'o', 'x', 'x', 'x', 'o',
               'x', 'x', 'x', 'x', 'o', 'o', 'o',
               nil, nil, nil, nil, nil, nil, nil,
@@ -232,7 +232,7 @@ RSpec.describe Game do
 
         play_area = [
             'o', 'x', 'o', 'x', 'o', 'x', 'o',
-            'x', 'x', 'o', 'o', 'o','o', 'x',
+            'x', 'x', 'o', 'o', 'o', 'o', 'x',
             'x', nil, nil, nil, nil, nil, nil,
             nil, nil, nil, nil, nil, nil, nil,
             nil, nil, nil, nil, nil, nil, nil,
@@ -246,10 +246,10 @@ RSpec.describe Game do
 
         end
 
-        it 'returns player 2' do
+        it 'returns player 2 after 28 turns' do
           play_area = [
               'o', 'x', 'o', 'x', 'o', 'x', 'o',
-              'o', 'o', 'o', 'x', 'x','x', 'o',
+              'o', 'o', 'o', 'x', 'x', 'x', 'o',
               'x', 'x', 'x', 'o', 'o', 'o', 'x',
               'o', 'o', 'o', 'o', 'x', 'x', 'x',
               nil, nil, nil, nil, nil, nil, nil,
@@ -266,8 +266,145 @@ RSpec.describe Game do
 
 
       end
-    end
+
+      context 'vertical wins for player 1' do
+        it 'returns player 1 after 15 turns' do
+
+          play_area = [
+              'x', 'o', 'x', 'o', 'x', 'o', 'x',
+              'x', 'o', 'o', 'x', nil, 'o', 'o',
+              'x', nil, nil, nil, nil, nil, nil,
+              'x', nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player1)
+        end
+        it 'returns player 1 after 28 turns' do
+          play_area = [
+              'o', 'o', 'x', 'x', 'x', 'o', 'x',
+              'o', 'x', 'x', 'x', 'o', 'o', 'x',
+              'x', 'o', 'o', 'x', 'x', 'x', 'o',
+              'x', 'x', 'o', 'x', 'o', 'o', 'o',
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player1)
+        end
 
 
+
+      end
+      context 'vertical wins for player 2' do
+        it 'returns player 2 after 15 turns' do
+
+          play_area = [
+              'o', 'x', 'o', 'x', 'o', 'x', 'o',
+              'o', 'x', 'x', 'o', nil, 'x', 'x',
+              'o', nil, nil, nil, nil, nil, nil,
+              'o', nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player2)
+        end
+        it 'returns player 2 after 28 turns' do
+          play_area = [
+              'x', 'x', 'o', 'o', 'o', 'x', 'o',
+              'x', 'o', 'o', 'o', 'x', 'x', 'o',
+              'o', 'x', 'x', 'o', 'o', 'o', 'x',
+              'o', 'o', 'x', 'o', 'x', 'x', 'x',
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player2)
+        end
+      end
+
+      context 'diagonal wins for player 1' do
+        it 'returns player 1 after 16 turns' do
+
+          play_area = [
+              'x', 'o', 'o', 'x', 'x', 'o', 'o',
+              'x', 'o', 'x', 'x', nil, 'o', 'o',
+              'o', 'x', nil, nil, nil, nil, nil,
+              'x', nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player1)
+        end
+        it 'returns player 1 after 28 turns' do
+          play_area = [
+              'o', 'o', 'x', 'x', 'x', 'o', 'x',
+              'o', 'x', 'x', 'o', 'o', 'x', 'x',
+              'x', 'o', 'o', 'x', 'x', 'x', 'o',
+              'x', 'x', 'o', 'x', 'o', 'o', 'o',
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player1)
+        end
+      end
+
+      context 'diagonal wins for player 2' do
+        it 'returns player 2 after 16 turns' do
+
+          play_area = [
+              'o', 'x', 'x', 'o', 'o', 'x', 'x',
+              'o', 'x', 'o', 'o', nil, 'x', 'x',
+              'x', 'o', nil, nil, nil, nil, nil,
+              'o', nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player2)
+        end
+        it 'returns player 2 after 28 turns' do
+          play_area = [
+              'x', 'x', 'o', 'o', 'o', 'x', 'o',
+              'x', 'o', 'o', 'x', 'x', 'o', 'o',
+              'o', 'x', 'x', 'o', 'o', 'o', 'x',
+              'o', 'o', 'x', 'o', 'x', 'x', 'x',
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player2)
+        end
+      end
+
     end
+  end
 end
