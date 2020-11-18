@@ -188,5 +188,86 @@ RSpec.describe Game do
       end
     end
     end
+
+    context 'complex board states do' do
+      let(:player1) { Player.new('Edd', 'x')}
+      let(:player2) { Player.new('Tom', 'o')}
+
+      context 'horizontal wins for player 1' do
+        it 'returns player 1 after 15 turns' do
+
+          play_area = [
+              'x', 'o', 'x', 'o', 'x', 'o', 'x',
+              'o', 'o', 'x', 'x', 'x','x', 'o',
+              'o', nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player1)
+        end
+
+        it 'returns player 1 after 28 turns' do
+          play_area = [
+              'x', 'o', 'x', 'o', 'x', 'o', 'x',
+              'x', 'x', 'x', 'o', 'o','o', 'x',
+              'o', 'o', 'o', 'x', 'x', 'x', 'o',
+              'x', 'x', 'x', 'x', 'o', 'o', 'o',
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player1)
+        end
+      end
+      context 'horizontal wins for player 2' do
+        it 'returns player 2 after 15 turns' do
+
+        play_area = [
+            'o', 'x', 'o', 'x', 'o', 'x', 'o',
+            'x', 'x', 'o', 'o', 'o','o', 'x',
+            'x', nil, nil, nil, nil, nil, nil,
+            nil, nil, nil, nil, nil, nil, nil,
+            nil, nil, nil, nil, nil, nil, nil,
+            nil, nil, nil, nil, nil, nil, nil
+        ]
+
+        board = Board.new(play_area)
+        game = Game.new(player1, player2, board)
+
+        expect(game.check_winner).to eq(player2)
+
+        end
+
+        it 'returns player 2' do
+          play_area = [
+              'o', 'x', 'o', 'x', 'o', 'x', 'o',
+              'o', 'o', 'o', 'x', 'x','x', 'o',
+              'x', 'x', 'x', 'o', 'o', 'o', 'x',
+              'o', 'o', 'o', 'o', 'x', 'x', 'x',
+              nil, nil, nil, nil, nil, nil, nil,
+              nil, nil, nil, nil, nil, nil, nil
+          ]
+
+          board = Board.new(play_area)
+          game = Game.new(player1, player2, board)
+
+          expect(game.check_winner).to eq(player2)
+
+
+        end
+
+
+      end
+    end
+
+
     end
 end

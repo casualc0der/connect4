@@ -1,8 +1,8 @@
 require './spec/support/board_helpers'
 class Board
   attr_reader :play_area
-  def initialize
-    @play_area = Array.new(42)
+  def initialize(board = Array.new(42))
+    @play_area = board
   end
   def insert(pos, disc)
 
