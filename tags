@@ -16,7 +16,7 @@ error_check	spec/board_spec.rb	/^  def error_check(pos)$/;"	f
 fill_up_board	spec/support/board_helpers.rb	/^  def fill_up_board(board)$/;"	f	class:BoardHelpers
 full?	spec/board_spec.rb	/^  def full?$/;"	f
 horizontal	spec/win_conditions.rb	/^  def horizontal$/;"	f	class:Connect4WinConditions
-initialize	spec/board_spec.rb	/^  def initialize(board = Array.new(42))$/;"	f	class:Board
+initialize	spec/board_spec.rb	/^  def initialize(play_area = Array.new(42))$/;"	f	class:Board
 initialize	spec/game_spec.rb	/^  def initialize(player1, player2, board)$/;"	f	class:Game
 initialize	spec/player_spec.rb	/^  def initialize(name, disc)$/;"	f	class:Player
 insert	spec/board_spec.rb	/^  def insert(pos, disc)$/;"	f	class:Board

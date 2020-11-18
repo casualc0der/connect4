@@ -404,7 +404,6 @@ RSpec.describe Game do
           expect(game.check_winner).to eq(player2)
         end
       end
-
     end
   end
 end
