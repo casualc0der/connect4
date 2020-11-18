@@ -44,6 +44,18 @@ class Game
     end
 
     # diagonal
+    x = [0,1,2,3,7,8,9,10,14,16,17]
+    y = [3,4,5,6,10,11,12,13,17,18,19,20]
+    (0..20).each do |i|
+      if x.include?(i) && y.include?(i)
+        wins << [i, i+8, i+16, i+24]
+        wins << [i, i+6, i+12, i+18]
+      elsif x.include?(i)
+        wins << [i, i+8, i+16, i+24]
+      else
+        wins << [i, i+6, i+12, i+ 18]
+      end
+    end
 
     wins
   end
@@ -82,7 +94,6 @@ RSpec.describe Game do
   end
   describe '#winning permutations' do
     it 'should have 69 entries' do
-      pending
       expect(game.winning_positions.length).to eq(69)
     end
   end
