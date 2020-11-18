@@ -13,21 +13,26 @@ class Game
   def check_winner
 
     # we need a loop here to check the permutations
-    discs = board.play_area.values_at(0,1,2,3)
+    @winning_positions.each do |line|
 
-    # how many discs in the slice
-    number_of_discs = discs.compact.length
+      discs = board.play_area.values_at(line[0],line[1],line[2],line[3])
 
-    # not enough discs in the slice to confirm a winner
-    return false if number_of_discs < 4
+      # how many discs in the slice
+      number_of_discs = discs.compact.length
 
-    # the slice must all be one colour to declare a winner
-    return false if discs.uniq.length > 1
+      # not enough discs in the slice to confirm a winner
+      next if number_of_discs < 4
 
-    # if we've got this far then someone has won...
-    # if its not player 1, its player 2!
+      # the slice must all be one colour to declare a winner
+      next if discs.uniq.length > 1
 
-    return player1.disc_check(discs.uniq.first) ? player1 : player2
+      # if we've got this far then someone has won...
+      # if its not player 1, its player 2!
+      return player1.disc_check(discs.uniq.first) ? player1 : player2
+    end
+
+    # if we exit the loop, it means no one has won
+    false
   end
 
 end
@@ -167,7 +172,6 @@ RSpec.describe Game do
         expect(game.check_winner).to eq(player1)
       end
       it 'returns player 1 (with offset)' do
-        pending
         4.times {|i| game.board.insert(i+2, game.player1.disc)}
         expect(game.check_winner).to eq(player1)
       end
@@ -177,6 +181,10 @@ RSpec.describe Game do
         4.times {|i| game.board.insert(i+1, game.player2.disc)}
         expect(game.check_winner).to eq(player2)
 
+      end
+      it 'returns player 2 (with offset)' do
+        4.times {|i| game.board.insert(i+2, game.player2.disc)}
+        expect(game.check_winner).to eq(player2)
       end
     end
     end
