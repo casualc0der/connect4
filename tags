@@ -7,6 +7,7 @@
 Board	spec/board_spec.rb	/^class Board$/;"	c
 BoardHelpers	spec/support/board_helpers.rb	/^module BoardHelpers$/;"	m
 Connect4WinConditions	spec/win_conditions.rb	/^module Connect4WinConditions$/;"	m
+Formatter	spec/formatter_spec.rb	/^class Formatter$/;"	c
 Game	spec/game_spec.rb	/^class Game$/;"	c
 Player	spec/player_spec.rb	/^class Player$/;"	c
 check_winner	spec/game_spec.rb	/^  def check_winner$/;"	f	class:Game
@@ -21,4 +22,5 @@ initialize	spec/game_spec.rb	/^  def initialize(player1, player2, board)$/;"	f	c
 initialize	spec/player_spec.rb	/^  def initialize(name, disc)$/;"	f	class:Player
 insert	spec/board_spec.rb	/^  def insert(pos, disc)$/;"	f	class:Board
 permutations	spec/win_conditions.rb	/^  def permutations$/;"	f	class:Connect4WinConditions
+print	spec/formatter_spec.rb	/^  def self.print(board)$/;"	F	class:Formatter
 vertical	spec/win_conditions.rb	/^  def vertical$/;"	f	class:Connect4WinConditions
