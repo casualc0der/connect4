@@ -1,8 +1,8 @@
 require './spec/support/board_helpers'
 class Board
   attr_reader :play_area
-  def initialize
-    @play_area = Array.new(42)
+  def initialize(play_area = Array.new(42))
+    @play_area = play_area
   end
   def insert(pos, disc)
 
@@ -121,6 +121,5 @@ RSpec.describe Board do
         expect(board.full?).to eq(false)
       end
     end
-
   end
 end

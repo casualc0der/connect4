@@ -6,10 +6,19 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 Board	spec/board_spec.rb	/^class Board$/;"	c
 BoardHelpers	spec/support/board_helpers.rb	/^module BoardHelpers$/;"	m
+Connect4WinConditions	spec/win_conditions.rb	/^module Connect4WinConditions$/;"	m
+Game	spec/game_spec.rb	/^class Game$/;"	c
 Player	spec/player_spec.rb	/^class Player$/;"	c
+check_winner	spec/game_spec.rb	/^  def check_winner$/;"	f	class:Game
+diagonal	spec/win_conditions.rb	/^  def diagonal$/;"	f	class:Connect4WinConditions
+disc_check	spec/player_spec.rb	/^  def disc_check(disc_to_check)$/;"	f	class:Player
 error_check	spec/board_spec.rb	/^  def error_check(pos)$/;"	f
 fill_up_board	spec/support/board_helpers.rb	/^  def fill_up_board(board)$/;"	f	class:BoardHelpers
 full?	spec/board_spec.rb	/^  def full?$/;"	f
-initialize	spec/board_spec.rb	/^  def initialize$/;"	f	class:Board
+horizontal	spec/win_conditions.rb	/^  def horizontal$/;"	f	class:Connect4WinConditions
+initialize	spec/board_spec.rb	/^  def initialize(play_area = Array.new(42))$/;"	f	class:Board
+initialize	spec/game_spec.rb	/^  def initialize(player1, player2, board)$/;"	f	class:Game
 initialize	spec/player_spec.rb	/^  def initialize(name, disc)$/;"	f	class:Player
 insert	spec/board_spec.rb	/^  def insert(pos, disc)$/;"	f	class:Board
+permutations	spec/win_conditions.rb	/^  def permutations$/;"	f	class:Connect4WinConditions
+vertical	spec/win_conditions.rb	/^  def vertical$/;"	f	class:Connect4WinConditions
