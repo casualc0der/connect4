@@ -17,7 +17,7 @@ class Connect4
         puts "Its a draw!"
         return
       end
-      # system("clear")
+      system("clear")
       puts "#{current_player.name} select a column"
       puts Formatter.print(board)
       choice = (gets.chomp).to_i
