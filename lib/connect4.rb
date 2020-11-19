@@ -17,6 +17,7 @@ class Connect4
     winner = nil
     current_player = player1
 
+    # the main game loop
     loop do
       if board.full?
         puts "Its a draw!"
