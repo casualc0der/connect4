@@ -37,7 +37,6 @@ class Connect4
       end
       current_player = current_player == player1 ? player2 : player1
     end
-
     puts "Congratulations #{winner.name}, you won!"
 
   end
