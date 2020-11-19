@@ -1,7 +1,8 @@
 class Board
-  attr_reader :play_area
-  def initialize(play_area = Array.new(42))
+  attr_reader :play_area, :selections
+  def initialize(play_area = Array.new(42), selections = [])
     @play_area = play_area
+    @selections = selections
   end
   def insert(pos, disc)
 
@@ -20,6 +21,7 @@ class Board
     return false unless error_check(pos)
 
     # otherwise, insert the disc into the board
+    @selections << pos
     @play_area[pos] = disc
 
   end

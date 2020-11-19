@@ -10,6 +10,7 @@ RSpec.describe Formatter do
       it 'prints out an empty board' do
         board = Board.new
         output = Formatter.print(board)
+      
 
         connect_4_board = <<~BOARD
 

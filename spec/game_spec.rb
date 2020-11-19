@@ -143,6 +143,9 @@ RSpec.describe Game do
     context 'complex board states do' do
       let(:player1) { Player.new('Edd', 'x')}
       let(:player2) { Player.new('Tom', 'o')}
+      let(:selections) { (0..42).to_a }
+
+
 
       context 'horizontal wins for player 1' do
         it 'returns player 1 after 15 turns' do
@@ -156,7 +159,8 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player1)
@@ -172,7 +176,7 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player1)
@@ -190,7 +194,7 @@ RSpec.describe Game do
             nil, nil, nil, nil, nil, nil, nil
         ]
 
-        board = Board.new(play_area)
+        board = Board.new(play_area, selections)
         game = Game.new(player1, player2, board)
 
         expect(game.check_winner).to eq(player2)
@@ -207,7 +211,7 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player2)
@@ -230,7 +234,7 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player1)
@@ -245,7 +249,7 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player1)
@@ -266,7 +270,7 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player2)
@@ -281,7 +285,7 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player2)
@@ -300,7 +304,7 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player1)
@@ -315,7 +319,7 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player1)
@@ -334,7 +338,7 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player2)
@@ -349,7 +353,7 @@ RSpec.describe Game do
               nil, nil, nil, nil, nil, nil, nil
           ]
 
-          board = Board.new(play_area)
+          board = Board.new(play_area, selections)
           game = Game.new(player1, player2, board)
 
           expect(game.check_winner).to eq(player2)

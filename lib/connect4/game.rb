@@ -1,8 +1,10 @@
 require_relative 'win_conditions'
 
+# The game class checks if a player has won the game
 class Game
   include Connect4WinConditions
   attr_reader :player1, :player2, :board, :winning_positions
+
   def initialize(player1, player2, board)
     @player1 = player1
     @player2 = player2
@@ -12,10 +14,15 @@ class Game
 
   def check_winner
 
-    # we need a loop here to check the permutations
-    @winning_positions.each do |line|
+    # Previously the loop checked all 69 wining combos each time. It has been optimised
+    # slightly to only check possible winning lines, rather than ALL of them (even lines 
+    # with no discs in! )
 
-      discs = board.play_area.values_at(line[0],line[1],line[2],line[3])
+    discs_in_board = @winning_positions.select{|x| (x & @board.selections).size > 3}
+
+    # we need a loop here to check the permutations
+    discs_in_board.each do |line|
+      discs = board.play_area.values_at(line[0], line[1], line[2], line[3])
 
       # how many discs in the slice
       number_of_discs = discs.compact.length
