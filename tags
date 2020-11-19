@@ -4,23 +4,27 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Board	spec/board_spec.rb	/^class Board$/;"	c
+Board	lib/connect4/board.rb	/^class Board$/;"	c
 BoardHelpers	spec/support/board_helpers.rb	/^module BoardHelpers$/;"	m
-Connect4WinConditions	spec/win_conditions.rb	/^module Connect4WinConditions$/;"	m
+Connect4	lib/connect4.rb	/^class Connect4$/;"	c
+Connect4WinConditions	lib/connect4/win_conditions.rb	/^module Connect4WinConditions$/;"	m
+Formatter	lib/connect4/formatter.rb	/^class Formatter$/;"	c
 Formatter	spec/formatter_spec.rb	/^class Formatter$/;"	c
-Game	spec/game_spec.rb	/^class Game$/;"	c
-Player	spec/player_spec.rb	/^class Player$/;"	c
-check_winner	spec/game_spec.rb	/^  def check_winner$/;"	f	class:Game
-diagonal	spec/win_conditions.rb	/^  def diagonal$/;"	f	class:Connect4WinConditions
-disc_check	spec/player_spec.rb	/^  def disc_check(disc_to_check)$/;"	f	class:Player
-error_check	spec/board_spec.rb	/^  def error_check(pos)$/;"	f
+Game	lib/connect4/game.rb	/^class Game$/;"	c
+Player	lib/connect4/player.rb	/^class Player$/;"	c
+check_winner	lib/connect4/game.rb	/^  def check_winner$/;"	f	class:Game
+diagonal	lib/connect4/win_conditions.rb	/^  def diagonal$/;"	f	class:Connect4WinConditions
+disc_check	lib/connect4/player.rb	/^  def disc_check(disc_to_check)$/;"	f	class:Player
+error_check	lib/connect4/board.rb	/^  def error_check(pos)$/;"	f
 fill_up_board	spec/support/board_helpers.rb	/^  def fill_up_board(board)$/;"	f	class:BoardHelpers
-full?	spec/board_spec.rb	/^  def full?$/;"	f
-horizontal	spec/win_conditions.rb	/^  def horizontal$/;"	f	class:Connect4WinConditions
-initialize	spec/board_spec.rb	/^  def initialize(play_area = Array.new(42))$/;"	f	class:Board
-initialize	spec/game_spec.rb	/^  def initialize(player1, player2, board)$/;"	f	class:Game
-initialize	spec/player_spec.rb	/^  def initialize(name, disc)$/;"	f	class:Player
-insert	spec/board_spec.rb	/^  def insert(pos, disc)$/;"	f	class:Board
-permutations	spec/win_conditions.rb	/^  def permutations$/;"	f	class:Connect4WinConditions
+full?	lib/connect4/board.rb	/^  def full?$/;"	f
+horizontal	lib/connect4/win_conditions.rb	/^  def horizontal$/;"	f	class:Connect4WinConditions
+initialize	lib/connect4/board.rb	/^  def initialize(play_area = Array.new(42))$/;"	f	class:Board
+initialize	lib/connect4/game.rb	/^  def initialize(player1, player2, board)$/;"	f	class:Game
+initialize	lib/connect4/player.rb	/^  def initialize(name, disc)$/;"	f	class:Player
+insert	lib/connect4/board.rb	/^  def insert(pos, disc)$/;"	f	class:Board
+permutations	lib/connect4/win_conditions.rb	/^  def permutations$/;"	f	class:Connect4WinConditions
+play	lib/connect4.rb	/^  def self.play$/;"	F	class:Connect4
+print	lib/connect4/formatter.rb	/^  def self.print(board)$/;"	F	class:Formatter
 print	spec/formatter_spec.rb	/^  def self.print(board)$/;"	F	class:Formatter
-vertical	spec/win_conditions.rb	/^  def vertical$/;"	f	class:Connect4WinConditions
+vertical	lib/connect4/win_conditions.rb	/^  def vertical$/;"	f	class:Connect4WinConditions

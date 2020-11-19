@@ -1,44 +1,6 @@
-require_relative 'win_conditions'
-
-class Game
-  include Connect4WinConditions
-  attr_reader :player1, :player2, :board, :winning_positions
-  def initialize(player1, player2, board)
-    @player1 = player1
-    @player2 = player2
-    @board = board
-    @winning_positions = permutations
-  end
-
-  def check_winner
-
-    # we need a loop here to check the permutations
-    @winning_positions.each do |line|
-
-      discs = board.play_area.values_at(line[0],line[1],line[2],line[3])
-
-      # how many discs in the slice
-      number_of_discs = discs.compact.length
-
-      # not enough discs in the slice to confirm a winner
-      next if number_of_discs < 4
-
-      # the slice must all be one colour to declare a winner
-      next if discs.uniq.length > 1
-
-      # if we've got this far then someone has won...
-      # if its not player 1, its player 2!
-      return player1.disc_check(discs.uniq.first) ? player1 : player2
-    end
-
-    # if we exit the loop, it means no one has won
-    false
-  end
-
-end
-
-require './spec/player_spec'
-require './spec/board_spec'
+require_relative '../lib/connect4/player'
+require_relative '../lib/connect4/board'
+require_relative '../lib/connect4/game'
 
 RSpec.describe Game do
   let(:player1) { Player.new('peep1', 'o')}
@@ -56,18 +18,7 @@ RSpec.describe Game do
       end
     end
   end
-  describe '#play' do
-    pending 'need a way to check for a winner!'
-    context 'If player 1 has won' do
-      it 'returns player 1'
-    end
-    context 'If player 2 has won' do
-      it 'returns player 2'
-    end
-    context 'If the game is a draw' do
-      it 'returns a draw object'
-    end
-  end
+
   describe '#winning permutations' do
     context 'in total' do
     it 'should have 69 entries' do
