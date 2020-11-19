@@ -18,7 +18,7 @@ error_check	lib/connect4/board.rb	/^  def error_check(pos)$/;"	f
 fill_up_board	spec/support/board_helpers.rb	/^  def fill_up_board(board)$/;"	f	class:BoardHelpers
 full?	lib/connect4/board.rb	/^  def full?$/;"	f
 horizontal	lib/connect4/win_conditions.rb	/^  def horizontal$/;"	f	class:Connect4WinConditions
-initialize	lib/connect4/board.rb	/^  def initialize(play_area = Array.new(42))$/;"	f	class:Board
+initialize	lib/connect4/board.rb	/^  def initialize(play_area = Array.new(42), selections = [])$/;"	f	class:Board
 initialize	lib/connect4/game.rb	/^  def initialize(player1, player2, board)$/;"	f	class:Game
 initialize	lib/connect4/player.rb	/^  def initialize(name, disc)$/;"	f	class:Player
 insert	lib/connect4/board.rb	/^  def insert(pos, disc)$/;"	f	class:Board
