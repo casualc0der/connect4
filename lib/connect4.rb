@@ -7,23 +7,39 @@ require_relative './connect4/player'
 class Connect4
 
   def self.play
+    system("clear")
     puts 'Player 1 enter your name'
     player1 = Player.new(gets.chomp, 'O')
     puts 'Player 2 enter your name'
     player2 = Player.new(gets.chomp, 'X')
     board = Board.new
     game = Game.new(player1, player2, board)
+    winner = nil
+    turn = 1
+    current_player = player1
 
-    until game.check_winner
-      puts "#{player1.name} select a column"
-      choice = (gets.chomp).to_i
-      board.insert(choice, player1.disc)
+    loop do
+      system("clear")
+      puts "#{current_player.name} select a column"
       puts Formatter.print(board)
-      puts "#{player2.name} select a column"
       choice = (gets.chomp).to_i
-      board.insert(choice, player2.disc)
+      while board.insert(choice, current_player.disc) == false
+        system("clear")
+        puts Formatter.print(board)
+        puts "sorry, invalid choice, please choose a different column!"
+        choice = (gets.chomp).to_i
+      end
+
       puts Formatter.print(board)
+      if game.check_winner
+        winner = current_player
+        break
+      end
+      current_player = current_player == player1 ? player2 : player1
     end
+
+    puts "Congratulations #{winner.name}, you won!"
+
   end
 end
 

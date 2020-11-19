@@ -9,7 +9,6 @@ BoardHelpers	spec/support/board_helpers.rb	/^module BoardHelpers$/;"	m
 Connect4	lib/connect4.rb	/^class Connect4$/;"	c
 Connect4WinConditions	lib/connect4/win_conditions.rb	/^module Connect4WinConditions$/;"	m
 Formatter	lib/connect4/formatter.rb	/^class Formatter$/;"	c
-Formatter	spec/formatter_spec.rb	/^class Formatter$/;"	c
 Game	lib/connect4/game.rb	/^class Game$/;"	c
 Player	lib/connect4/player.rb	/^class Player$/;"	c
 check_winner	lib/connect4/game.rb	/^  def check_winner$/;"	f	class:Game
@@ -26,5 +25,4 @@ insert	lib/connect4/board.rb	/^  def insert(pos, disc)$/;"	f	class:Board
 permutations	lib/connect4/win_conditions.rb	/^  def permutations$/;"	f	class:Connect4WinConditions
 play	lib/connect4.rb	/^  def self.play$/;"	F	class:Connect4
 print	lib/connect4/formatter.rb	/^  def self.print(board)$/;"	F	class:Formatter
-print	spec/formatter_spec.rb	/^  def self.print(board)$/;"	F	class:Formatter
 vertical	lib/connect4/win_conditions.rb	/^  def vertical$/;"	f	class:Connect4WinConditions
