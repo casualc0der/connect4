@@ -15,10 +15,13 @@ class Connect4
     board = Board.new
     game = Game.new(player1, player2, board)
     winner = nil
-    turn = 1
     current_player = player1
 
     loop do
+      if board.full?
+        puts "Its a draw!"
+        return
+      end
       system("clear")
       puts "#{current_player.name} select a column"
       puts Formatter.print(board)
