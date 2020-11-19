@@ -14,10 +14,10 @@ class Game
 
   def check_winner
 
-    # Previously the loop checked all 69 wining combos each time even lines with no discs in!
+    # Previously the loop checked all 69 winning combos each time even lines with no discs in!
     # It has been optimised slightly to only check possible winning lines for this turn.
 
-    discs_in_board = @winning_positions.select{|x| (x & @board.selections).size > 3}
+    discs_in_board = @winning_positions.select{ |x| (x & @board.selections).size > 3 }
 
     # we need a loop here to check the permutations
     discs_in_board.each do |line|
