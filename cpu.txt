@@ -1,0 +1,15 @@
+for each player move, we need to work out the optimal next move
+best bet is probably minimax
+
+if cpu makes a move that will increase the number of discs in winning
+positions, that should return a higer score. We will go 5 levels deep??
+
+def eddimax(node, board, winning_pos)
+
+    return node if winning_pos == 4
+
+    board.virtual_insert(rand 1-7, player.disc)
+    board.virtual_insert(node, cpu.disc)
+
+    eddimax(node, board, winning_pos)
+end
